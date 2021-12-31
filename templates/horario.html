@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Horario{% endblock %}
+{% block page_content %}
+
+    <div class="page-header">
+    <h1>Horario</h1>
+    </div>
+{% for item in data %}
+        <img src="{{url_for('static', filename=item[2])}}" />    
+{% endfor %}
+
+{{ wtf.quick_form(form) }}
+{% endblock %}
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }}
+    {{ form.name.label }} {{ form.name() }}
+    {{ form.submit() }}
+</form>
